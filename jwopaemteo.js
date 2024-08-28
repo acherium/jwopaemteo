@@ -1,4 +1,4 @@
-import { $ } from "./lyra/lyra-module.js";
+import { $, copy } from "./lyra/lyra-module.js";
 
 (() => {
   const rank = $("#input-rank");
@@ -8,6 +8,7 @@ import { $ } from "./lyra/lyra-module.js";
   const threshold = $("#range-threshold");
   const percAlt = $("#range-perc-alt");
 
+  const up = $("#button-up");
   const reset = $("#button-reset");
 
   const getValueInt = (node) => parseInt(node.value);
@@ -40,6 +41,10 @@ import { $ } from "./lyra/lyra-module.js";
   threshold.addEventListener("input", doCalc);
   percAlt.addEventListener("input", doCalc);
 
+  up.addEventListener("click", () => {
+    rank.value = copy(max.value);
+    doCalc();
+  });
   reset.addEventListener("click", doReset);
 
   doCalc();
