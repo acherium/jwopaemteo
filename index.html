@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>트릭컬 줘팸터 1찍등반 최적화 계산기</title>
+  <link rel="shortcut icon" href="./lyra/assets/essentials/favicon.svg" type="image/x-icon">
+
+  <link rel="stylesheet" href="./lyra/lyra-styles.css">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .wrap {
+      max-width: 100vw;
+      width: 480px;
+    }
+    .w100p { width: 100% !important; }
+
+    main {
+      display: flex;
+      /* align-items: center; */
+      justify-content: center;
+      flex-direction: column;
+      gap: var(--p);
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+
+      min-height: 100vh;
+      width: 100vw;
+      height: max-content;
+    }
+
+    input[type=number] {
+      flex: 1;
+      width: 100%;
+    }
+  </style>
+
+  <script type="module" src="./lyra/lyra-style-init.js" defer></script>
+  <script type="module" src="./jwopaemteo.js" defer></script>
+</head>
+<body>
+  <main class="wrap">
+    <h1>트릭컬 줘팸터<br>1찍등반 최적화 계산기</h1>
+    <h3>치타 달린다❗❗❗❗❗</h3>
+    <div class="divline-row"></div>
+    <h4>계산</h4>
+    <label class="w100p" lyra-tip="현재 줘팸터 등수를 입력합니다.">
+      <div class="i i-location"></div>
+      <p>내 순위</p>
+      <input type="number" name="input-rank" id="input-rank" value="3001">
+    </label>
+    <label class="w100p" lyra-tip="줘팸 가능한 최대 등수입니다.">
+      <div class="i i-frontmost"></div>
+      <p>줘팸 가능 최대</p>
+      <input type="number" name="input-max" id="input-max" value="0" disabled>
+    </label>
+    <div class="divline-row"></div>
+    <h4>기본 보정치</h4>
+    <div class="list-row wf">
+      <p lyra-tip="기본 구간에 대한 최대 도전 가능 범위를 설정합니다.">범위</p>
+      <label class="wf f1">
+        <input type="range" min="0" max="100" step="1" value="92" name="range-perc-main" id="range-perc-main">
+      </label>
+    </div>
+    <div class="divline-row"></div>
+    <h4>상위 등수 보정치</h4>
+    <div class="list-row wf">
+      <p lyra-tip="상위 등수 구간에 대한 최대 도전 가능 범위를 적용할 기준 등수를 설정합니다.">기준</p>
+      <label class="wf f1">
+        <input type="range" min="1" max="500" step="1" value="99" name="range-threshold" id="range-threshold">
+      </label>
+    </div>
+    <div class="list-row wf">
+      <p lyra-tip="상위 등수 구간에 대한 최대 도전 가능 범위를 설정합니다.">범위</p>
+      <label class="wf f1">
+        <input type="range" min="0" max="100" step="1" value="35" name="range-perc-alt" id="range-perc-alt">
+      </label>
+    </div>
+    <div class="divline-row"></div>
+    <div class="list-row wf fjcs">
+      <button id="button-reset">
+        <div class="i i-clockwise"></div>
+        <p>보정치 초기화</p>
+      </button>
+    </div>
+  </main>
+</body>
+</html>
