@@ -41,4 +41,6 @@ import { $ } from "./lyra/lyra-module.js";
   percAlt.addEventListener("input", doCalc);
 
   reset.addEventListener("click", doReset);
+
+  doCalc();
 })();
