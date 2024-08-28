@@ -1,4 +1,4 @@
-import { $, copy } from "./lyra/lyra-module.js";
+import { $, $a, copy } from "./lyra/lyra-module.js";
 
 (() => {
   const rank = $("#input-rank");
@@ -8,8 +8,9 @@ import { $, copy } from "./lyra/lyra-module.js";
   const threshold = $("#range-threshold");
   const percAlt = $("#range-perc-alt");
 
-  const up = $("#button-up");
   const reset = $("#button-reset");
+  const up = $("#button-up");
+  const adds = $a(".button-add");
 
   const getValueInt = (node) => parseInt(node.value);
   const doCalc = () => {
@@ -46,6 +47,18 @@ import { $, copy } from "./lyra/lyra-module.js";
     doCalc();
   });
   reset.addEventListener("click", doReset);
+
+  for (const btn of adds) {
+    btn.addEventListener("click", () => {
+      const i = getValueInt(rank);
+      if (Number.isNaN(i)) return;
+  
+      const a = getValueInt(btn);
+  
+      rank.value = i + a;
+      doCalc();
+    });
+  };
 
   doCalc();
 })();
